@@ -14,22 +14,21 @@ end
 
 --这里的'Misc.RareMonsterNamesMessage'是怪物名称
 
---[[
 if name == 'Misc.RareMonsterNamesMessage' then
 	PrintInfo("一屏距离内发现精英");  --一般认为有名有姓的才算是JY，咳咳
 	PlayeMSG1();
-end;]]
+end;
 
 --这个玩意是用来描述'ACDEnterKnownMessage' 的很重要发现物品或者怪物的消息
 if name == 'ACD.ACDEnterKnownMessage' then
-	if (msg.Quality>9) and (msg.Field2~=18) then --Quality>9的情况下是传奇装备，任务物品不属于传奇装备
+	if (msg.Quality>=9) then --Quality>9的情况下是传奇装备，任务物品不属于传奇装备
 		PrintInfo(msg:AsText());
 		PlayeMSG2();
 	end;
 end
 
 if (name == 'Game.QuitGameMessage') then
-	PrintInfo('game quit。');
+	PrintInfo('游戏退出了。');
 end
 
 --[[--这里可以打印出装备或者怪物的属性信息，已注释，其他消息构造体请参考d3protocolClass.cs
